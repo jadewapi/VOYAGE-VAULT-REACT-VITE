@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./style.css";
 import {
   BrowserRouter,
@@ -6,16 +7,49 @@ import {
   Link,
   NavLink,
   Outlet,
+  useParams,
 } from "react-router-dom";
 
+const BASE_URL = "http://localhost:9000/cities";
+
 function App() {
+  const [places, setPlaces] = useState([]);
+  const [loading, setIsLoading] = useState(false);
+  useEffect(function () {
+    async function fetchData() {
+      try {
+        setIsLoading(true);
+        const res = await fetch(`${BASE_URL}`);
+        if (!res.ok) {
+          throw new Error("fetched not successful");
+        }
+        const data = await res.json();
+        setPlaces(data);
+        console.log(data);
+      } catch (err) {
+        console.log(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<MainApp />} />
         <Route path="/" element={<MainApp />}>
           <Route path="application" element={<Application />}>
-            <Route path=":cities" element={<Cities />}></Route>
+            <Route
+              path="cities"
+              element={<Cities places={places} loading={loading} />}
+            >
+              <Route path=":id" element={<City />} />
+            </Route>
+            <Route
+              path="countries"
+              element={<Countries places={places} />}
+            ></Route>
           </Route>
         </Route>
       </Routes>
@@ -23,8 +57,28 @@ function App() {
   );
 }
 
-function Cities() {
-  return <div>List of cities</div>;
+function City() {
+  return <p>Specific City</p>;
+}
+
+function Cities({ places, loading }) {
+  return (
+    <>
+      {loading && <Loading />}
+      {!loading &&
+        places &&
+        places.map((obj) => (
+          <NavLink key={obj.id} to={`${obj.id}`}>
+            <p>{obj.cityName}</p>
+          </NavLink>
+        ))}
+      <Outlet></Outlet>
+    </>
+  );
+}
+
+function Countries({ places }) {
+  return <p>List of countries:</p>;
 }
 
 function Application() {
@@ -32,10 +86,10 @@ function Application() {
     <>
       <p>Application</p>
       <button>
-        <NavLink to={"8739287398"}>City</NavLink>
+        <NavLink to="cities">Cities</NavLink>
       </button>
       <button>
-        <NavLink>Countries</NavLink>
+        <NavLink to="countries">Countries</NavLink>
       </button>
       <Outlet />
     </>
@@ -52,6 +106,10 @@ function MainApp() {
       <Outlet />
     </>
   );
+}
+
+function Loading() {
+  return <p>Loading</p>;
 }
 
 export default App;
