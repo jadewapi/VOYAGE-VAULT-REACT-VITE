@@ -10,7 +10,7 @@ import {
 import "./style.css";
 
 function App() {
-  const [cities, setCities] = useState([]);
+  const [places, setPlaces] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const BASE_URL = "http://localhost:8000";
 
@@ -23,7 +23,7 @@ function App() {
         if (!res.ok) {
           throw new Error("error with fetching data.");
         }
-        setCities(data);
+        setPlaces(data);
       } catch (error) {
         console.log(error.message);
       } finally {
@@ -43,25 +43,60 @@ function App() {
         <Route path="mainApp" element={<MainApp />}>
           <Route
             index
-            element={<MainAppCities cities={cities} isLoading={isLoading} />}
+            element={<MainAppCities place={places} isLoading={isLoading} />}
           />
           <Route
             path="cities"
-            element={<MainAppCities cities={cities} isLoading={isLoading} />}
+            element={<MainAppCities places={places} isLoading={isLoading} />}
           />
-          <Route path="countries" element={<MainAppList />} />
+          <Route path="cities/:id" element={<ClickedCity />}></Route>
+          <Route
+            path="countries"
+            element={
+              <MainAppCountryList places={places} isLoading={isLoading} />
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-function MainAppCities({ cities, isLoading }) {
+function ClickedCity() {
+  return <p>A city is clicked</p>;
+}
+
+function MainAppCities({ places, isLoading }) {
   if (isLoading) {
     return <p>Loading...</p>;
   }
-  if (!isLoading && cities) {
-    return cities.map((item) => <p key={item.id}>{item.country}</p>);
+
+  if (!isLoading && places) {
+    return places.map((item) => (
+      <Link key={item.id} to={item.id}>
+        <p>{item.cityName}</p>
+      </Link>
+    ));
+  }
+  <ClickedCity />;
+}
+
+function MainAppCountryList({ places, isLoading }) {
+  const countries = places.reduce((arr, curr) => {
+    if (!arr.map((obj) => obj.country).includes(curr.country)) {
+      return [...arr, curr];
+    } else return arr;
+  }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+  if (!isLoading && places) {
+    return countries.map((item) => (
+      <Link key={item.id} to={item.id}>
+        <p>{item.country}</p>
+      </Link>
+    ));
   }
 }
 
@@ -132,14 +167,6 @@ function MainApp() {
         <MainAppNav />
         <Outlet />
       </div>
-    </>
-  );
-}
-
-function MainAppList() {
-  return (
-    <>
-      <div>List</div>
     </>
   );
 }
