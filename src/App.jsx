@@ -8,6 +8,7 @@ import {
   NavLink,
   Outlet,
   useParams,
+  useSearchParams,
 } from "react-router-dom";
 
 const BASE_URL = "http://localhost:9000/cities";
@@ -44,7 +45,7 @@ function App() {
               path="cities"
               element={<Cities places={places} loading={loading} />}
             >
-              <Route path=":id" element={<City />} />
+              <Route path=":id" element={<City places={places} />} />
             </Route>
             <Route
               path="countries"
@@ -57,8 +58,16 @@ function App() {
   );
 }
 
-function City() {
-  return <p>Specific City</p>;
+function City({ places }) {
+  const [placeParams, setPlaceParams] = useSearchParams();
+  const lat = placeParams.get("lat");
+  const lng = placeParams.get("lng");
+  const { id } = useParams();
+  return (
+    <p>
+      {lat} {lng} {id}
+    </p>
+  );
 }
 
 function Cities({ places, loading }) {
@@ -68,7 +77,10 @@ function Cities({ places, loading }) {
       {!loading &&
         places &&
         places.map((obj) => (
-          <NavLink key={obj.id} to={`${obj.id}`}>
+          <NavLink
+            key={obj.id}
+            to={`${obj.id}?lat=${obj.position.lat}&lng=${obj.position.lng}`}
+          >
             <p>{obj.cityName}</p>
           </NavLink>
         ))}
