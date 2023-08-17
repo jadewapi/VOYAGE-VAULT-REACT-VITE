@@ -10,8 +10,7 @@
   color: #ff4d00;
 }
 
-.nav > ul > li > img {
-  cursor: pointer;
+.nav > ul > li > a > img {
   width: auto;
   height: 110%;
 }

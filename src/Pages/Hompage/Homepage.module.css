@@ -45,11 +45,6 @@
   line-height: 8rem;
 }
 
-.textContainer--homepage > a {
-  color: #ff4d00;
-  text-decoration: none;
-}
-
 .textContainer--homepage > p {
   text-align: start;
   font-size: 1.25rem;

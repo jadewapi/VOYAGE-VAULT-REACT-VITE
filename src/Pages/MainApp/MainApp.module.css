@@ -13,6 +13,43 @@
   border-right: 10px solid #ff4d00;
 }
 
+.logo {
+  height: 10%;
+  width: 100%;
+  text-align: center;
+}
+
+.logo > a {
+  width: auto;
+  height: 180%;
+  position: relative;
+  bottom: 50%;
+}
+
+.logo > a > img {
+  width: auto;
+  height: 180%;
+}
+
+.navigation {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom: 2px solid #1f1f1f;
+}
+
+.navigation > a:first-child {
+  border-right: 2px solid #1f1f1f;
+}
+
+.navigation > a {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #ff4d00;
+  border-radius: 20px 20px 0 0;
+}
+
 .listContainer {
   height: 80%;
   width: 95%;

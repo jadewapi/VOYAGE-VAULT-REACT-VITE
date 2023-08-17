@@ -1,0 +1,99 @@
+.cityContainer {
+  overflow: auto;
+  height: 100%;
+}
+
+.cityContainer > div:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.city {
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1f1f1f;
+  border-radius: 20px;
+  padding: 0 3rem;
+  font-size: 1.5rem;
+  color: white;
+  overflow: auto;
+}
+
+.cityInfo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cityInfo > p:first-child {
+  font-size: 4rem;
+}
+
+.cityInfo > p:nth-child(2) {
+  max-width: 15rem;
+  overflow: auto;
+}
+
+.cityDate {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cityDate > svg {
+  fill: white;
+}
+
+@media (width < 1219px) {
+  .city {
+    font-size: 1.25rem;
+  }
+}
+
+@media (width < 1160px) {
+  .cityInfo > p:nth-child(2) {
+    max-width: 10rem;
+    overflow: auto;
+  }
+}
+
+@media (width < 669px) {
+  .cityInfo > p:nth-child(2) {
+    max-width: 5rem;
+    overflow: auto;
+  }
+}
+
+@media (width < 1050px) {
+  .city {
+    font-size: 1rem;
+  }
+  .cityInfo > p:first-child {
+    font-size: 3rem;
+  }
+}
+
+@media (width < 956px) {
+  .city {
+    font-size: 1rem;
+  }
+  .cityInfo > p:first-child {
+    font-size: 3rem;
+  }
+  .menu {
+    width: 60%;
+  }
+  #map {
+    width: 40%;
+  }
+}
+
+@media (width < 633px) {
+  .city {
+    font-size: 0.5rem;
+  }
+  .cityInfo > p:first-child {
+    font-size: 2rem;
+  }
+}

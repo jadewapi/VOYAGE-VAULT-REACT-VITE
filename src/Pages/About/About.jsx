@@ -1,5 +1,6 @@
 import styles from "./About.module.css";
 import Navbar from "../../Components/Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
@@ -8,7 +9,9 @@ function About() {
       <section className={styles.container}>
         <div className={styles.left}>
           <h1>Welcome to our travel journal app</h1>
-          <p>Go to app now.</p>
+          <Link to="/mainApp">
+            <p>Go to app now.</p>
+          </Link>
         </div>
         <div className={styles.right}>
           <h2>* Capturing Moments, Sharing Stories</h2>
