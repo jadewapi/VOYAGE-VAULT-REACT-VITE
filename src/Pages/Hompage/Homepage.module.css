@@ -1,0 +1,123 @@
+.container--homepage {
+  display: flex;
+  gap: 6rem;
+  height: 64rem;
+  font-family: "Poppins";
+  overflow: hidden;
+}
+
+.image--homepage {
+  width: 50%;
+  text-align: center;
+  height: 100%;
+  position: relative;
+}
+
+.image--homepage > img {
+  position: relative;
+  top: 7%;
+  height: 85%;
+  width: auto;
+  animation: rotateAnimation 30s linear infinite;
+  text-shadow: 2px 2px 20px #ff4d00;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.textContainer--homepage {
+  width: 50%;
+  height: 100%;
+  color: #ff4d00;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textContainer--homepage > h1 {
+  font-size: 7rem;
+  line-height: 8rem;
+}
+
+.textContainer--homepage > a {
+  color: #ff4d00;
+  text-decoration: none;
+}
+
+.textContainer--homepage > p {
+  text-align: start;
+  font-size: 1.25rem;
+  line-height: 10rem;
+}
+
+.textContainer--homepage > a {
+  width: fit-content;
+  font-size: 3rem;
+  font-family: "Barriecito", sans-serif;
+  border-bottom: 4px dashed #ff4d00;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+
+.textContainer--homepage > a:hover {
+  padding: 0 4rem;
+}
+
+@media (width < 1381px) {
+  .image--homepage > img {
+    position: relative;
+    top: 18%;
+    height: 65%;
+    width: auto;
+    animation: rotateAnimation 30s linear infinite;
+    text-shadow: 2px 2px 20px #ff4d00;
+  }
+}
+
+@media (width < 1125px) {
+  .image--homepage > img {
+    position: relative;
+    top: 18%;
+    left: 6%;
+  }
+}
+
+@media (width < 1031px) {
+  .image--homepage > img {
+    position: relative;
+    height: 40%;
+    top: 30%;
+    left: 0%;
+  }
+}
+
+@media (width < 1031px) {
+  .textContainer--homepage > h1 {
+    font-size: 4rem;
+  }
+  .textContainer--homepage > p {
+    line-height: 4rem;
+    font-size: 1rem;
+  }
+}
+
+@media (width < 731px) {
+  .textContainer--homepage > h1 {
+    line-height: 4rem;
+  }
+  .textContainer--homepage > a {
+    font-size: 2rem;
+  }
+}
+
+@media (width < 617px) {
+  .textContainer--homepage > h1 {
+    font-size: 3rem;
+  }
+}

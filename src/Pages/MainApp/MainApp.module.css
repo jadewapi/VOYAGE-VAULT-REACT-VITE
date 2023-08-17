@@ -1,0 +1,29 @@
+.container {
+  height: 65rem;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins";
+}
+
+.menu {
+  width: 40%;
+  height: 100%;
+  border-right: 10px solid #ff4d00;
+}
+
+.listContainer {
+  height: 80%;
+  width: 95%;
+  background-color: #ff4d00;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+@media (width < 956px) {
+  .menu {
+    width: 60%;
+  }
+}

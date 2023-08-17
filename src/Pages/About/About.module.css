@@ -1,0 +1,85 @@
+.container {
+  height: 64rem;
+  display: flex;
+  gap: 5rem;
+  color: #ff4d00;
+  padding: 2rem 0;
+}
+
+.left {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left > h1 {
+  font-size: 9rem;
+  border-bottom: 4px dashed #ff4d00;
+}
+
+.left > p {
+  font-size: 3rem;
+  font-family: "Poppins";
+  background-color: none;
+  border-bottom: 2px solid #ff4d00;
+  width: fit-content;
+  padding: 4rem 4rem 0 0;
+  text-align: end;
+  transition: all 0.25s linear;
+}
+
+.left > p:hover {
+  padding: 4rem 10rem 0 0;
+  cursor: pointer;
+}
+
+.right {
+  padding-left: 4rem;
+  border-left: 2px solid #ff4d00;
+  width: 60%;
+  font-family: "Poppins";
+}
+
+.right > h2:not(:first-child) {
+  margin-top: 5rem;
+}
+
+.right > h2 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+
+.right > p {
+  font-size: 1.5rem;
+}
+
+@media (width < 1223px) {
+  .left > h1 {
+    font-size: 7rem;
+  }
+  .left > p {
+    font-size: 2rem;
+  }
+}
+
+@media (width < 1110px) {
+  .right > h2 {
+    font-size: 2rem;
+  }
+  .right > p {
+    font-size: 1rem;
+  }
+}
+
+@media (width < 858px) {
+  .left > h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (width < 639px) {
+  .left > p {
+    font-size: 1.5rem;
+  }
+}

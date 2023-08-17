@@ -1,31 +1,53 @@
-:root {
-  --purple: #494c57;
-  --yellow: #ffcc01;
-}
-
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
+  box-sizing: border-box;
 }
 
-a {
-  color: black;
-}
-
-p > a {
-  background-color: aliceblue;
-}
-
-a.active {
-  background-color: #9dec79;
+.trademark {
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  height: 2.75rem;
+  background-color: #ff4d00;
+  box-shadow: 2px 2px 20px #ff4d00;
+  font-size: 2rem;
+  text-align: center;
+  color: #1f1f1f;
 }
 
 html {
   font-size: 62.5%;
+  user-select: none;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 body {
-  background-color: var(--purple);
-  font-size: 2rem;
+  background-color: #1f1f1f;
+  font-family: "Barriecito", sans-serif;
+  min-width: 521px;
+}
+
+#id {
+  padding: 0 4rem;
+  background-color: #1f1f1f;
+}
+
+nav > ul > li:nth-child(2) > a.active {
+  border-top: 2px dashed #ff4d00;
+  padding: 1rem 4rem;
+}
+
+#map {
+  filter: saturate(2);
+  width: 60%;
+  height: 100%;
+  background-color: rgb(80, 75, 69);
 }

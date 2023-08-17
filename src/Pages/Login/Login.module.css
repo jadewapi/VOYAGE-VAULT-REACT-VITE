@@ -1,0 +1,55 @@
+.container {
+  height: 64rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > form {
+  width: 70%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.container > form > button,
+.container > form > input {
+  padding: 1rem 4rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border: 2px solid #ff4d00;
+  color: white;
+}
+
+.container > form > input {
+  width: 40%;
+  transition: all 0.25s linear;
+}
+
+.container > form > button {
+  width: 20%;
+}
+
+.container > form > input:hover {
+  padding: 1rem 8rem;
+}
+
+.container > form > input:focus {
+  padding: 1rem 8rem;
+}
+
+.container > form > input::placeholder {
+  color: white;
+}
+
+@media (width < 912px) {
+  .container > form {
+    width: 100%;
+  }
+  .container > form > button,
+  .container > form > input {
+    font-size: 1rem;
+  }
+}
