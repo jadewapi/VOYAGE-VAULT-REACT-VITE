@@ -1,6 +1,7 @@
 .cityContainer {
   overflow: auto;
   height: 100%;
+  position: relative;
 }
 
 .cityContainer > div:not(:first-child) {

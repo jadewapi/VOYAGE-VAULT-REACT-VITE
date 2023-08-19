@@ -1,5 +1,6 @@
 .countries {
   height: 100%;
+  position: relative;
 }
 
 .countries .specificCountry:not(:first-child) {
@@ -20,6 +21,10 @@
   font-size: 2rem;
 }
 
+.specificCountry > div:first-child {
+  font-size: 5rem;
+}
+
 .countryName {
   padding-left: 4rem;
   height: 60%;
@@ -31,5 +36,8 @@
 @media (width < 1014px) {
   .specificCountry {
     font-size: 1.5rem;
+  }
+  .specificCountry > div:first-child {
+    font-size: 3rem;
   }
 }
