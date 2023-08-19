@@ -7,6 +7,7 @@ import Cities from "./Pages/MainApp/Cities/Cities";
 import Countries from "./Pages/MainApp/Countries/Countries";
 import Form from "./Pages/MainApp/Form/Form";
 import { PlacesProvider } from "./Contexts/PlacesProvider";
+import City from "./Pages/MainApp/City/City";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
             <Route path="mainApp" element={<MainApp />}>
               <Route index element={<Navigate to="cities" replace />} />
               <Route path="cities" element={<Cities />} />
-              <Route path="cities/:id" element={<p>City is clicked</p>} />
+              <Route path="cities/:id" element={<City />} />
               <Route path="countries" element={<Countries />} />
               <Route path="form" element={<Form />} />
             </Route>

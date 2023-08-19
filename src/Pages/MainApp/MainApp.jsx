@@ -24,7 +24,9 @@ function MainApp() {
           <Outlet />
         </div>
       </div>
-      <div id="map" onClick={() => navigate("form")}></div>
+      <div id="map" onClick={() => navigate("form")}>
+        <p></p>
+      </div>
     </section>
   );
 }
