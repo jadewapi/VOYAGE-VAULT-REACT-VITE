@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Homepage from "./Pages/Hompage/Homepage";
 import About from "./Pages/About/About";
 import Login from "./Pages/Login/Login";
@@ -7,7 +8,29 @@ import Cities from "./Pages/MainApp/Cities/Cities";
 import Countries from "./Pages/MainApp/Countries/Countries";
 import Form from "./Pages/MainApp/Form/Form";
 
+const LOCAL_API = "http://localhost:9000";
+
 function App() {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(function () {
+    async function fetchData() {
+      try {
+        setIsLoading(true);
+        const res = await fetch(`${LOCAL_API}/cities`);
+        if (!res.ok) throw new Error("Fetching error...");
+        const data = await res.json();
+        setData(data);
+      } catch (err) {
+        console.log(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  });
+
   return (
     <>
       <BrowserRouter>
@@ -17,6 +40,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
           <Route path="mainApp" element={<MainApp />}>
+            <Route index element={<Navigate to="cities" replace />} />
             <Route path="cities" element={<Cities />} />
             <Route path="countries" element={<Countries />} />
             <Route path="form" element={<Form />} />
@@ -26,5 +50,4 @@ function App() {
     </>
   );
 }
-
 export default App;
