@@ -19,7 +19,7 @@ function App() {
           <Route path="mainApp" element={<MainApp />}>
             <Route path="cities" element={<Cities />} />
             <Route path="countries" element={<Countries />} />
-            <Route path="countries" element={<Form />} />
+            <Route path="form" element={<Form />} />
           </Route>
         </Routes>
       </BrowserRouter>

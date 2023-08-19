@@ -62,3 +62,12 @@ a {
     width: 40%;
   }
 }
+
+.navigation {
+  transition: all 0.25s ease;
+}
+
+.navigation.active {
+  padding: 1rem 4rem;
+  background-color: #ffffff;
+}
