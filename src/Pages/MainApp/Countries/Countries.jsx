@@ -1,7 +1,13 @@
 import styles from "./Countries.module.css";
 import Loading from "../../../Components/Loading/Loading";
+import { usePlaces } from "../../../Contexts/PlacesProvider";
+import { useParams } from "react-router-dom";
 
-function Countries({ data, isLoading }) {
+function Countries() {
+  const [locationParam, setLocationParam] = useParams();
+  const lat = locationParam.get("lat");
+  const lng = locationParam.get("lng");
+  const { data, isLoading } = usePlaces();
   const uniqueCountries = data.reduce((acc, curr) => {
     if (!acc.map((places) => places.country).includes(curr.country)) {
       return [...acc, curr];

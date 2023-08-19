@@ -19,6 +19,12 @@
   align-items: center;
   gap: 2rem;
   font-size: 2rem;
+  transition: all 0.25s ease;
+}
+
+.specificCountry:hover {
+  background-color: #343434;
+  height: 19%;
 }
 
 .specificCountry > div:first-child {

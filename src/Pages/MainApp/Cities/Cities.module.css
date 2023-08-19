@@ -4,7 +4,7 @@
   position: relative;
 }
 
-.cityContainer > div:not(:first-child) {
+.cityContainer > a:not(:first-child) {
   margin-top: 1rem;
 }
 
@@ -19,6 +19,12 @@
   font-size: 1.5rem;
   color: white;
   overflow: auto;
+  transition: all 0.25s ease;
+}
+
+.city:hover {
+  background-color: #343434;
+  height: 19%;
 }
 
 .cityInfo {
