@@ -4,6 +4,7 @@
   border-radius: 20px;
   padding: 1rem 4rem;
   color: white;
+  position: relative;
 }
 
 .container > div:first-child {

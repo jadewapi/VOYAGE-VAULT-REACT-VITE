@@ -22,6 +22,12 @@
   transition: all 0.25s ease;
 }
 
+:global(.activeCity) {
+  height: 19%;
+  background-color: #343434;
+  border: 2px solid white;
+}
+
 .city:hover {
   background-color: #343434;
   height: 19%;

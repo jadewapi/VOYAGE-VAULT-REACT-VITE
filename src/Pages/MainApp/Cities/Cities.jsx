@@ -4,14 +4,16 @@ import { usePlaces } from "../../../Contexts/PlacesProvider";
 import { Link, useSearchParams } from "react-router-dom";
 
 function Cities() {
-  const { isLoading, data, formatDate } = usePlaces();
+  const { isLoading, data, formatDate, currentCity } = usePlaces();
   return (
     <div className={styles.cityContainer}>
       {isLoading && <Loading />}
       {!isLoading &&
         data.map((place) => (
           <Link
-            className={styles.city}
+            className={`${styles.city} ${
+              currentCity.id === place.id ? "activeCity" : ""
+            }`}
             key={place.id}
             to={`${place.id}?lat=${place.position.lat}&lng=${place.position.lng}`}
           >

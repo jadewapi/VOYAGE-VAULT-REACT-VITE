@@ -1,18 +1,9 @@
 import styles from "./MainApp.module.css";
 import Logo from "../../Components/Logo/Logo";
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import Map from "./Map";
 
 function MainApp() {
-  const navigate = useNavigate();
-  const [param, set] = useSearchParams();
-  const lat = param.get("lat");
-  const lng = param.get("lng");
   return (
     <section className={styles.container}>
       <div className={styles.menu}>
@@ -33,10 +24,7 @@ function MainApp() {
           <Outlet />
         </div>
       </div>
-      <div id="map" onClick={() => navigate("form")}>
-        <p>{lat}</p>
-        <p>{lng}</p>
-      </div>
+      <Map />
     </section>
   );
 }

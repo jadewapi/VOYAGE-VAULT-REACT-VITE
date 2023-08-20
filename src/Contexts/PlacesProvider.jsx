@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 
 const LOCAL_API = "http://localhost:9000";
 
@@ -60,6 +59,8 @@ function PlacesProvider({ children }) {
     isLoading,
     formatDate,
     getCity,
+    currentCity,
+    setCurrentCity,
   };
 
   return (
