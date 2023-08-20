@@ -1,0 +1,50 @@
+.container {
+  height: 100%;
+  background-color: #1f1f1f;
+  border-radius: 20px;
+  padding: 1rem 4rem;
+  color: white;
+}
+
+.container > div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  border-bottom: 2px solid #4d4d4d;
+}
+
+.container > div:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.container > div:not(:first-child) > p:first-child {
+  font-size: 1rem;
+}
+
+.container > div:not(:first-child) > p:nth-child(2) {
+  font-size: 2.5rem;
+}
+
+.container > div:nth-child(4) > p:nth-child(2) {
+  height: 10rem;
+  max-height: 10rem;
+}
+
+.container > button {
+  margin-top: 2rem;
+  font-size: 3rem;
+  padding: 0 2rem;
+}
+
+@media (width < 864px) {
+  .container > div:not(:first-child) > p:nth-child(2) {
+    font-size: 1.5rem;
+  }
+  .container > button {
+    font-size: 2rem;
+  }
+  .container > div:first-child {
+    font-size: 2rem;
+  }
+}

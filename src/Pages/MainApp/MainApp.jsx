@@ -1,9 +1,18 @@
 import styles from "./MainApp.module.css";
 import Logo from "../../Components/Logo/Logo";
-import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 function MainApp() {
   const navigate = useNavigate();
+  const [param, set] = useSearchParams();
+  const lat = param.get("lat");
+  const lng = param.get("lng");
   return (
     <section className={styles.container}>
       <div className={styles.menu}>
@@ -25,7 +34,8 @@ function MainApp() {
         </div>
       </div>
       <div id="map" onClick={() => navigate("form")}>
-        <p></p>
+        <p>{lat}</p>
+        <p>{lng}</p>
       </div>
     </section>
   );

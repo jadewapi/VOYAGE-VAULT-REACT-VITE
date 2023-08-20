@@ -22,6 +22,7 @@ function formatDate(dateString) {
 function PlacesProvider({ children }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentCity, setCurrentCity] = useState({});
 
   useEffect(function () {
     async function fetchData() {
@@ -41,10 +42,24 @@ function PlacesProvider({ children }) {
     fetchData();
   }, []);
 
+  async function getCity(id) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`http://localhost:9000/cities/${id}`);
+      const data = await res.json();
+      setCurrentCity(data);
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   const contextValues = {
     data,
     isLoading,
     formatDate,
+    getCity,
   };
 
   return (

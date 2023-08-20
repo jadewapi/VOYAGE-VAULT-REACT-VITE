@@ -1,11 +1,10 @@
 import styles from "./Cities.module.css";
 import Loading from "../../../Components/Loading/Loading";
 import { usePlaces } from "../../../Contexts/PlacesProvider";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function Cities() {
   const { isLoading, data, formatDate } = usePlaces();
-
   return (
     <div className={styles.cityContainer}>
       {isLoading && <Loading />}
