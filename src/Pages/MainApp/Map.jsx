@@ -23,7 +23,6 @@ function Map() {
   } = useGeolocation();
 
   const [lat, lng] = useParamUrl();
-  console.log(lat);
 
   useEffect(
     function () {

@@ -10,6 +10,7 @@ function Form() {
     country: "dsfsdf",
     city: "sdflkhsdjfkh",
     emoji: "dsfsdfsdf",
+    wikiId: "sdjfhjsdhf",
   });
 
   function getCountryFlagEmoji(countryCode) {
@@ -26,6 +27,11 @@ function Form() {
     return flagEmoji;
   }
 
+  function getWikipediaLink(wikiId) {
+    return `https://en.wikipedia.org/wiki/Special:EntityPage/${wikiId}
+    `;
+  }
+
   useEffect(
     function () {
       async function fetchData() {
@@ -38,6 +44,25 @@ function Form() {
             throw new Error("Something is wrong with fetching the data.");
           }
           const data = await res.json();
+          setCurrentCountry((prev) => {
+            const newCountry = { ...prev };
+            const removeThe = data.countryName
+              .split(" ")
+              .map((word) => {
+                if (word.includes("the")) {
+                  return;
+                } else return word;
+              })
+              .join(" ");
+            // const getWikiId = data.localityInfo.administrative.find(
+            //   (obj) => obj.name === data.city
+            // ).wikidataId;
+            newCountry.country = removeThe;
+            newCountry.city = data.city;
+            newCountry.emoji = getCountryFlagEmoji(data.countryCode);
+            // newCountry.wikiId = getWikipediaLink(getWikiId);
+            return newCountry;
+          });
           console.log(data);
         } catch (err) {
           console.log(err.message);
@@ -51,14 +76,18 @@ function Form() {
   );
   return (
     <div className={styles.formContainer}>
-      <p>🇵🇭 Philippines</p>
+      <p>
+        {currentCountry.emoji} {currentCountry.country}
+      </p>
       <form className={styles.form}>
         <label>City name:</label>
-        <input type="text" value="sevila" />
-        <label>When did you go to Sevilla</label>
-        <input type="text" value="sevila" />
-        <label>Notes about Sevilla</label>
+        <input type="text" value={currentCountry.country} />
+        <label>When did you go to {currentCountry.city}?</label>
+        <input type="text" />
+        <label>Notes about {currentCountry.city}</label>
         <textarea className={styles.textArea}>sdf</textarea>
+        <label>Wikipedia Link:</label>
+        <a>Click link!</a>
         <div className={styles.buttons}>
           <Button>Add</Button>
           <Button>Back</Button>
@@ -74,7 +103,7 @@ function Button({ children }) {
     <button
       onClick={(e) => {
         e.preventDefault();
-        navigate(-1);
+        navigate("/mainApp/cities");
       }}
     >
       {children}
