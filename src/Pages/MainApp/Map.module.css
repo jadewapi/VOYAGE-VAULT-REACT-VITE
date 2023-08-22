@@ -1,9 +1,10 @@
-#map {
+.map {
   height: 100%;
+  position: relative;
 }
 
 :global(.leaflet-popup .leaflet-popup-content-wrapper) {
-  background-color: #ff8854;
+  background-color: #ff6f31;
   color: #1f1f1f;
   border-radius: 5px;
   padding-right: 0.6rem;
@@ -31,4 +32,16 @@
 
 :global(.leaflet-marker-icon) {
   filter: hue-rotate(170deg);
+}
+
+.map > button {
+  font-family: "Poppins";
+  position: absolute;
+  z-index: 9999;
+  font-size: 2rem;
+  padding: 1rem 3rem;
+  background-color: #ff6f31;
+  top: 92%;
+  left: 38%;
+  border-radius: 20px 20px 0 0;
 }

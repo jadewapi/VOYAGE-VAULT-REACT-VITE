@@ -11,9 +11,9 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "./Map.module.css";
 import { usePlaces } from "../../Contexts/PlacesProvider";
 import { useGeolocation } from "../../hooks/useGeolocation";
+import { useParamUrl } from "../../hooks/useParamUrl";
 
 function Map() {
-  const [searchParams] = useSearchParams();
   const { data } = usePlaces();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const {
@@ -22,8 +22,9 @@ function Map() {
     getPosition,
   } = useGeolocation();
 
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const [lat, lng] = useParamUrl();
+  console.log(lat);
+
   useEffect(
     function () {
       if (lat && lng) setMapPosition([lat, lng]);
@@ -31,17 +32,28 @@ function Map() {
     [lat, lng]
   );
 
+  useEffect(
+    function () {
+      if (geoLocationPosition) {
+        setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
+      }
+    },
+    [geoLocationPosition]
+  );
+
   return (
     <div id="map">
-      <button onClick={getPosition} className={styles.mapButton}>
-        {isLoadingPosition ? "Loading..." : "Use your position"}
-      </button>
       <MapContainer
         center={mapPosition}
         zoom={5}
         scrollWheelZoom={true}
         className={styles.map}
       >
+        {!geoLocationPosition && (
+          <button onClick={getPosition}>
+            {isLoadingPosition ? "Loading..." : "Use your position"}
+          </button>
+        )}
         <TileLayer
           attribution='&copy; <a href="https://cartodb.com/attributions">CartoDB</a> contributors'
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
