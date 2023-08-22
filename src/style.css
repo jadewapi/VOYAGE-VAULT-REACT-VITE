@@ -71,3 +71,12 @@ a {
   padding: 1rem 4rem;
   background-color: #ffffff;
 }
+
+svg {
+  transition: all 0.25s ease;
+}
+
+svg:hover {
+  fill: red;
+  scale: 2;
+}

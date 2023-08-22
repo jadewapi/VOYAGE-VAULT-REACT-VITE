@@ -68,7 +68,21 @@ function PlacesProvider({ children }) {
       setCurrentCity(data);
       setData((prev) => [data, ...prev]);
     } catch (err) {
-      console.log(err.message);
+      console.log("Error creating city.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function deleteCity(id) {
+    try {
+      setIsLoading(true);
+      await fetch(`http://localhost:9000/cities/${id}`, {
+        method: "DELETE",
+      });
+      setData((prev) => prev.filter((obj) => obj.id !== id));
+    } catch (err) {
+      console.log("There was an error deleting the city.");
     } finally {
       setIsLoading(false);
     }
