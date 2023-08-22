@@ -2,16 +2,23 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Form.module.css";
 import { useParamUrl } from "../../../hooks/useParamUrl";
 import { useEffect, useState } from "react";
+import BackButton from "../../../Components/BackButton/BackButton";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { nanoid } from "nanoid";
+import { usePlaces } from "../../../Contexts/PlacesProvider";
 
 function Form() {
+  const navigate = useNavigate();
   const [lat, lng] = useParamUrl();
   const [isLoading, setIsLoading] = useState(false);
-  const [currentCountry, setCurrentCountry] = useState({
-    country: "dsfsdf",
-    city: "sdflkhsdjfkh",
-    emoji: "dsfsdfsdf",
-    wikiId: "sdjfhjsdhf",
-  });
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [date, setDate] = useState(new Date());
+  const [notes, setNotes] = useState("");
+  const [flag, setFlag] = useState("");
+  const [error, setError] = useState("");
+  const { createCity } = usePlaces();
 
   function getCountryFlagEmoji(countryCode) {
     if (!countryCode) {
@@ -27,15 +34,19 @@ function Form() {
     return flagEmoji;
   }
 
-  function getWikipediaLink(wikiId) {
-    return `https://en.wikipedia.org/wiki/Special:EntityPage/${wikiId}
-    `;
+  function removeParentheses(str) {
+    return str.replace(/\([^)]*\)/g, "").trim();
   }
 
   useEffect(
     function () {
+      if (!lat && !lng) {
+        setError("Start by clicking the map");
+        return;
+      }
       async function fetchData() {
         try {
+          setError("");
           setIsLoading(true);
           const res = await fetch(
             `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
@@ -44,28 +55,15 @@ function Form() {
             throw new Error("Something is wrong with fetching the data.");
           }
           const data = await res.json();
-          setCurrentCountry((prev) => {
-            const newCountry = { ...prev };
-            const removeThe = data.countryName
-              .split(" ")
-              .map((word) => {
-                if (word.includes("the")) {
-                  return;
-                } else return word;
-              })
-              .join(" ");
-            // const getWikiId = data.localityInfo.administrative.find(
-            //   (obj) => obj.name === data.city
-            // ).wikidataId;
-            newCountry.country = removeThe;
-            newCountry.city = data.city;
-            newCountry.emoji = getCountryFlagEmoji(data.countryCode);
-            // newCountry.wikiId = getWikipediaLink(getWikiId);
-            return newCountry;
-          });
+          if (!data.countryCode) {
+            throw new Error("Place not found.");
+          }
+          setCountry(removeParentheses(data.countryName));
+          setCity(data.city);
+          setFlag(getCountryFlagEmoji(data.countryCode));
           console.log(data);
         } catch (err) {
-          console.log(err.message);
+          setError(err.message);
         } finally {
           setIsLoading(false);
         }
@@ -74,40 +72,71 @@ function Form() {
     },
     [lat, lng]
   );
+
+  function handleSubmit(e) {
+    const uniqueId = nanoid();
+    e.preventDefault();
+    if (!city || !date) return;
+    const newObject = {
+      cityName: city,
+      country: country,
+      emoji: flag,
+      date: date,
+      notes: notes,
+      position: {
+        lat: lat,
+        lng: lng,
+      },
+      id: uniqueId,
+    };
+    createCity(newObject);
+    navigate("/mainApp/cities");
+  }
+
   return (
     <div className={styles.formContainer}>
-      <p>
-        {currentCountry.emoji} {currentCountry.country}
-      </p>
-      <form className={styles.form}>
-        <label>City name:</label>
-        <input type="text" value={currentCountry.country} />
-        <label>When did you go to {currentCountry.city}?</label>
-        <input type="text" />
-        <label>Notes about {currentCountry.city}</label>
-        <textarea className={styles.textArea}>sdf</textarea>
-        <label>Wikipedia Link:</label>
-        <a>Click link!</a>
-        <div className={styles.buttons}>
-          <Button>Add</Button>
-          <Button>Back</Button>
-        </div>
-      </form>
+      {isLoading && <p>Loading</p>}
+      {error && <p>{error}</p>}
+      {!isLoading && !error && (
+        <>
+          <p>
+            {flag} {country}
+          </p>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <label htmlFor="city">City name:</label>
+            <input
+              id="city"
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+            <label htmlFor="date">When did you go to {city}?</label>
+            <DatePicker
+              id="date"
+              onChange={(date) => setDate(date)}
+              selected={date}
+              dateFormat="dd/MM/yyyy"
+            />
+            <label htmlFor="notes">Notes about {city}</label>
+            <textarea
+              id="notes"
+              className={styles.textArea}
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              placeholder={`Write your experience(s) in ${city}`}
+            ></textarea>
+            <label>Wikipedia Link:</label>
+            <a>Click link!</a>
+            <div className={styles.buttons}>
+              <button type="button" onClick={(e) => handleSubmit(e)}>
+                Add
+              </button>
+              <BackButton />
+            </div>
+          </form>
+        </>
+      )}
     </div>
-  );
-}
-
-function Button({ children }) {
-  const navigate = useNavigate();
-  return (
-    <button
-      onClick={(e) => {
-        e.preventDefault();
-        navigate("/mainApp/cities");
-      }}
-    >
-      {children}
-    </button>
   );
 }
 

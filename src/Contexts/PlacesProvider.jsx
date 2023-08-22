@@ -54,6 +54,26 @@ function PlacesProvider({ children }) {
     }
   }
 
+  async function createCity(newCity) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`http://localhost:9000/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      const data = await res.json();
+      setCurrentCity(data);
+      setData((prev) => [data, ...prev]);
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   const contextValues = {
     data,
     isLoading,
@@ -61,6 +81,7 @@ function PlacesProvider({ children }) {
     getCity,
     currentCity,
     setCurrentCity,
+    createCity,
   };
 
   return (

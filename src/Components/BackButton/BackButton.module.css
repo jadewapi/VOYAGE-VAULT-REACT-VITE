@@ -1,0 +1,10 @@
+.button {
+  margin-top: 2rem;
+  font-size: 3rem;
+  padding: 0 2rem;
+}
+
+.button.form {
+  padding: 0 2rem;
+  font-size: 3rem;
+}

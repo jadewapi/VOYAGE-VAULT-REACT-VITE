@@ -35,6 +35,282 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Borme",
+      "country": "Indonesia",
+      "emoji": "🇮🇩",
+      "date": "2023-08-10T19:22:25.000Z",
+      "notes": "sdfsdfsd",
+      "position": {
+        "lat": "-4.36832042087623",
+        "lng": "140.37148202790635"
+      },
+      "id": "BI2QYhp7ix_Mc2YovXwjn"
+    },
+    {
+      "cityName": "Kangding",
+      "country": "China",
+      "emoji": "🇨🇳",
+      "date": "2023-08-22T19:22:36.028Z",
+      "notes": "sfjhsdfkdsfsdf",
+      "position": {
+        "lat": "30.06909396443887",
+        "lng": "102.01623676914446"
+      },
+      "id": "vWRsSp8sIwL-2lPysed5d"
+    },
+    {
+      "cityName": "Marzy",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-08-22T19:23:25.229Z",
+      "notes": "",
+      "position": {
+        "lat": "46.965259400349275",
+        "lng": "3.126990400768133"
+      },
+      "id": "G-H08oa6M-2M_HrjWsnUR"
+    },
+    {
+      "cityName": "Saint-Laurent-les-Tours",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-08-22T19:28:59.649Z",
+      "notes": "",
+      "position": {
+        "lat": "44.88701247981298",
+        "lng": "1.89739650133832"
+      },
+      "id": "US-aWWsmujNU9ityNIXhr"
+    },
+    {
+      "cityName": "In Salah",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2023-08-22T19:29:05.280Z",
+      "notes": "sdfdsf",
+      "position": {
+        "lat": "27.741884632507087",
+        "lng": "2.9526776499395173"
+      },
+      "id": "6jOfavszADzZrMOruY1YP"
+    },
+    {
+      "cityName": "Nabutiv",
+      "country": "Ukraine",
+      "emoji": "🇺🇦",
+      "date": "2023-08-22T19:29:12.398Z",
+      "notes": "",
+      "position": {
+        "lat": "49.468124067331644",
+        "lng": "31.28762402021092"
+      },
+      "id": "UKUgi9mjZhIZ4_xGkz6eV"
+    },
+    {
+      "cityName": "Cordon",
+      "country": "Philippines",
+      "emoji": "🇵🇭",
+      "date": "2023-04-04T19:29:20.000Z",
+      "notes": "sdfdsf",
+      "position": {
+        "lat": "16.720385051694",
+        "lng": "121.4894620940563"
+      },
+      "id": "K9OqjGUFdvYgti1IMDUKW"
+    },
+    {
+      "cityName": "Dallas",
+      "country": "United States of America",
+      "emoji": "🇺🇸",
+      "date": "2023-01-03T20:29:37.000Z",
+      "notes": "dsfsdfsdf",
+      "position": {
+        "lat": "32.602361666817515",
+        "lng": "-96.86835747989886"
+      },
+      "id": "4mqF3byEInrGNiqjdNhsU"
+    },
+    {
+      "cityName": "Township of Washington",
+      "country": "United States of America",
+      "emoji": "🇺🇸",
+      "date": "2023-08-22T19:29:49.780Z",
+      "notes": "sdfsdfsdf",
+      "position": {
+        "lat": "43.11702412135048",
+        "lng": "-84.50649285884505"
+      },
+      "id": "SrS7oKZQaDtTXvsu3llXn"
+    },
+    {
+      "cityName": "Unorganized Territory of Northwest Piscataquis",
+      "country": "United States of America",
+      "emoji": "🇺🇸",
+      "date": "2023-08-22T19:29:57.846Z",
+      "notes": "sdfsdfdsfds",
+      "position": {
+        "lat": "46.126556302418514",
+        "lng": "-69.30210181011566"
+      },
+      "id": "1KydM1twDfxKxsgWmmnTv"
+    },
+    {
+      "cityName": "Sasyr",
+      "country": "Russian Federation",
+      "emoji": "🇷🇺",
+      "date": "2023-08-22T19:30:52.812Z",
+      "notes": "khklsadjkhsf",
+      "position": {
+        "lat": "65.58572002329473",
+        "lng": "147.70773630386446"
+      },
+      "id": "NewE4BC99t9LGJEvK-rsN"
+    },
+    {
+      "cityName": "Tavildara",
+      "country": "Tajikistan",
+      "emoji": "🇹🇯",
+      "date": "2023-08-22T19:31:13.845Z",
+      "notes": "hgjgghjgh",
+      "position": {
+        "lat": "38.75408327579141",
+        "lng": "70.37986104334247"
+      },
+      "id": "eVQZNm0yDzNsTZ3omIOOV"
+    },
+    {
+      "cityName": "Unorganized Division No. 18, Saskatchewan",
+      "country": "Canada",
+      "emoji": "🇨🇦",
+      "date": "2023-08-22T19:53:44.212Z",
+      "notes": "dsfsdfsdf",
+      "position": {
+        "lat": "55.47885346331036",
+        "lng": "-109.2432521728907"
+      },
+      "id": "vDlPhWW3gaS705T9-s0yW"
+    },
+    {
+      "cityName": "Evenkiysky District",
+      "country": "Russian Federation",
+      "emoji": "🇷🇺",
+      "date": "2023-08-22T19:54:36.028Z",
+      "notes": "",
+      "position": {
+        "lat": "68.07330474079025",
+        "lng": "96.6318017139274"
+      },
+      "id": "oMv184_I4zId2mTFdbYvg"
+    },
+    {
+      "cityName": "Ango",
+      "country": "Congo",
+      "emoji": "🇨🇩",
+      "date": "2023-08-22T19:54:46.711Z",
+      "notes": "",
+      "position": {
+        "lat": "4.390228926463396",
+        "lng": "26.367187500000004"
+      },
+      "id": "Tdux4g19RzlwiJ6vePhEz"
+    },
+    {
+      "cityName": "Rougemont",
+      "country": "Switzerland",
+      "emoji": "🇨🇭",
+      "date": "2023-08-22T19:55:05.344Z",
+      "notes": "sdfsdf",
+      "position": {
+        "lat": "46.51351558059737",
+        "lng": "7.207031250000001"
+      },
+      "id": "qgCvWn-Kq8w9-APdoEIGO"
+    },
+    {
+      "cityName": "Edenkoben",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2023-08-22T20:00:49.658Z",
+      "notes": "",
+      "position": {
+        "lat": "49.28214015975995",
+        "lng": "8.129882812500002"
+      },
+      "id": "gPDWLHQhxMeMGA-shUTxD"
+    },
+    {
+      "cityName": "Horsching",
+      "country": "Austria",
+      "emoji": "🇦🇹",
+      "date": "2023-08-22T20:00:53.592Z",
+      "notes": "",
+      "position": {
+        "lat": "48.21003212234042",
+        "lng": "14.194335937500002"
+      },
+      "id": "1xsK0QOrKWWzhtd8aJJ9I"
+    },
+    {
+      "cityName": "Staszow",
+      "country": "Poland",
+      "emoji": "🇵🇱",
+      "date": "2023-08-22T20:01:32.242Z",
+      "notes": "",
+      "position": {
+        "lat": "50.61113171332364",
+        "lng": "21.26953125"
+      },
+      "id": "BVUNfJcRfRvrR2ZWf91c2"
+    },
+    {
+      "cityName": "Staszow",
+      "country": "Poland",
+      "emoji": "🇵🇱",
+      "date": "2023-08-22T20:01:32.242Z",
+      "notes": "",
+      "position": {
+        "lat": "50.61113171332364",
+        "lng": "21.26953125"
+      },
+      "id": "UA_GNboqmEanOaDv-AVGq"
+    },
+    {
+      "cityName": "Lozna",
+      "country": "Romania",
+      "emoji": "🇷🇴",
+      "date": "2023-08-22T20:01:35.307Z",
+      "notes": "",
+      "position": {
+        "lat": "47.32393057095941",
+        "lng": "23.466796875000004"
+      },
+      "id": "6Hj5DDYAOqER_EDmM_kcT"
+    },
+    {
+      "cityName": "Aybash",
+      "country": "Russian Federation",
+      "emoji": "🇷🇺",
+      "date": "2023-08-22T20:01:41.692Z",
+      "notes": "",
+      "position": {
+        "lat": "56.145549500679074",
+        "lng": "48.955078125"
+      },
+      "id": "UMA2zzKhQY152jRZCDBjw"
+    },
+    {
+      "cityName": "Mylva",
+      "country": "Russian Federation",
+      "emoji": "🇷🇺",
+      "date": "2023-08-22T20:01:52.858Z",
+      "notes": "",
+      "position": {
+        "lat": "62.32920841458002",
+        "lng": "56.25000000000001"
+      },
+      "id": "UTisF0gOpsWCjIdoV2RKd"
     }
   ]
 }

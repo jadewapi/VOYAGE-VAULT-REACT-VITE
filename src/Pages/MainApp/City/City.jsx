@@ -3,10 +3,10 @@ import styles from "./City.module.css";
 import { useEffect, useState } from "react";
 import { usePlaces } from "../../../Contexts/PlacesProvider";
 import Loading from "../../../Components/Loading/Loading";
+import BackButton from "../../../Components/BackButton/BackButton";
 
 function City() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { formatDate, getCity, currentCity, isLoading } = usePlaces();
   useEffect(
     function () {
@@ -38,7 +38,7 @@ function City() {
             <p>learn more:</p>
             <p>wikipedia link</p>
           </div>
-          <button onClick={() => navigate(-1)}>Back</button>
+          <BackButton />
         </>
       )}
     </div>
