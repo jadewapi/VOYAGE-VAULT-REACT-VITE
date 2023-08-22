@@ -1,4 +1,4 @@
-.map {
+#map {
   height: 100%;
 }
 
@@ -27,4 +27,8 @@
 
 :global(.leaflet-popup-content-wrapper) {
   border-left: 5px solid var(--color-brand--2);
+}
+
+:global(.leaflet-marker-icon) {
+  filter: hue-rotate(170deg);
 }
