@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 
 const LOCAL_API = "http://localhost:9000";
 
@@ -18,24 +24,69 @@ function formatDate(dateString) {
   return formattedDate;
 }
 
+const initialState = {
+  data: [],
+  isLoading: false,
+  currentCity: {},
+  error: "",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "loading":
+      return { ...state, isLoading: true };
+    case "data/loaded":
+      return {
+        ...state,
+        isLoading: false,
+        data: action.payload,
+      };
+    case "city/loaded":
+      return {
+        ...state,
+        isLoading: false,
+        currentCity: action.payload,
+      };
+    case "city/created":
+      return {
+        ...state,
+        isLoading: false,
+        currentCity: action.payload,
+        data: [action.payload, ...state.data],
+      };
+    case "city/deleted":
+      return {
+        ...state,
+        isLoading: false,
+        data: state.data.filter((obj) => obj.id !== action.payload),
+        currentCity: {},
+      };
+    case "rejected":
+      return { ...state, isLoading: false, error: action.payload };
+    default:
+      throw new Error("Unknown Action Type");
+  }
+}
+
 function PlacesProvider({ children }) {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [currentCity, setCurrentCity] = useState({});
+  const [{ data, isLoading, currentCity }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   useEffect(function () {
     async function fetchData() {
       try {
-        setIsLoading(true);
+        dispatch({ type: "loading" });
         const res = await fetch(`${LOCAL_API}/cities`);
-        if (!res.ok) throw new Error("Fetching error...");
         const data = await res.json();
-        setData(data);
+        dispatch({ type: "data/loaded", payload: data });
         console.log(data);
       } catch (err) {
-        console.log(err.message);
-      } finally {
-        setIsLoading(false);
+        dispatch({
+          type: "rejected",
+          action: "No cities found...",
+        });
       }
     }
     fetchData();
@@ -43,20 +94,18 @@ function PlacesProvider({ children }) {
 
   async function getCity(id) {
     try {
-      setIsLoading(true);
+      dispatch({ type: "loading" });
       const res = await fetch(`http://localhost:9000/cities/${id}`);
       const data = await res.json();
-      setCurrentCity(data);
+      dispatch({ type: "city/loaded", payload: data });
     } catch (err) {
-      console.log(err.message);
-    } finally {
-      setIsLoading(false);
+      dispatch({ type: "rejected", payload: "No place found..." });
     }
   }
 
   async function createCity(newCity) {
     try {
-      setIsLoading(true);
+      dispatch({ type: "loading" });
       const res = await fetch(`http://localhost:9000/cities`, {
         method: "POST",
         body: JSON.stringify(newCity),
@@ -65,26 +114,27 @@ function PlacesProvider({ children }) {
         },
       });
       const data = await res.json();
-      setCurrentCity(data);
-      setData((prev) => [data, ...prev]);
+      dispatch({ type: "city/created", payload: data });
     } catch (err) {
-      console.log("Error creating city.");
-    } finally {
-      setIsLoading(false);
+      dispatch({
+        type: "rejected",
+        payload: "Problem with creating the city...",
+      });
     }
   }
 
   async function deleteCity(id) {
     try {
-      setIsLoading(true);
+      dispatch({ type: "loading" });
       await fetch(`http://localhost:9000/cities/${id}`, {
         method: "DELETE",
       });
-      setData((prev) => prev.filter((obj) => obj.id !== id));
+      dispatch({ type: "city/deleted", payload: id });
     } catch (err) {
-      console.log("There was an error deleting the city.");
-    } finally {
-      setIsLoading(false);
+      dispatch({
+        type: "rejected",
+        payload: "Problem with deleting a place...",
+      });
     }
   }
 
@@ -94,8 +144,8 @@ function PlacesProvider({ children }) {
     formatDate,
     getCity,
     currentCity,
-    setCurrentCity,
     createCity,
+    deleteCity,
   };
 
   return (

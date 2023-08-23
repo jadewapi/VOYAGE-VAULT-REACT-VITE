@@ -8,6 +8,19 @@
   margin-top: 1rem;
 }
 
+.cityContainer > p {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  background-color: #1f1f1f;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  padding: 1rem 2rem;
+}
+
 .city {
   height: 12%;
   display: flex;
