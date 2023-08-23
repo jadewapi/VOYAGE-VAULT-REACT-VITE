@@ -73,6 +73,7 @@ function PlacesProvider({ children }) {
     reducer,
     initialState
   );
+  const [mapPosition, setMapPosition] = useState([40, 0]);
 
   useEffect(function () {
     async function fetchData() {
@@ -146,6 +147,8 @@ function PlacesProvider({ children }) {
     currentCity,
     createCity,
     deleteCity,
+    mapPosition,
+    setMapPosition,
   };
 
   return (

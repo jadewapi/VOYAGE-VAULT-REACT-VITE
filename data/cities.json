@@ -1,3 +1,28 @@
 {
-  "cities": []
+  "cities": [
+    {
+      "cityName": "Ulken Naryn",
+      "country": "Kazakhstan",
+      "emoji": "🇰🇿",
+      "date": "2023-08-23T05:28:00.553Z",
+      "notes": "sdf",
+      "position": {
+        "lat": "49.49667452747045",
+        "lng": "85.16124521976165"
+      },
+      "id": "X2keoxIQ_AksUpeDekMw-"
+    },
+    {
+      "cityName": "Nagtipunan",
+      "country": "Philippines",
+      "emoji": "🇵🇭",
+      "date": "2023-01-04T06:35:14.000Z",
+      "notes": "man it sucks ass fr\n",
+      "position": {
+        "lat": "16.214674588248556",
+        "lng": "121.47697403584877"
+      },
+      "id": "jCoJwwsqoozHJM_mwzdhy"
+    }
+  ]
 }

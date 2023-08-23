@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAuthentication } from "../Contexts/Authentication";
+import { useAuthentication } from "../../Contexts/Authentication";
 import styles from "./UserLogged.module.css";
 import { useEffect } from "react";
 
@@ -15,18 +15,18 @@ function UserLogged() {
     [isAuthenticated]
   );
   const hour = new Date().getHours();
-  console.log(hour);
   function getTimeOfDay(hour) {
-    if (hour > 0 && hour < 12) {
+    if (hour >= 0 && hour < 12) {
       return "Good morning";
     }
-    if (hour > 12 && hour < 18) {
+    if (hour >= 12 && hour < 18) {
       return "Good afternoon";
     }
-    if (hour > 18 && hour < 24) {
+    if (hour >= 18 && hour < 24) {
       return "Good evening";
     }
   }
+
   return (
     <div className={styles.container}>
       <div>

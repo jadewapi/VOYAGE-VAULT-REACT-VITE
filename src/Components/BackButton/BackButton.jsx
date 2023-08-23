@@ -8,7 +8,7 @@ function BackButton({ type }) {
       className={`styles.button ${type}`}
       onClick={(e) => {
         e.preventDefault();
-        navigate(-1);
+        navigate("/mainApp/cities");
       }}
     >
       Back

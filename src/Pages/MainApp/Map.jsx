@@ -12,11 +12,10 @@ import styles from "./Map.module.css";
 import { usePlaces } from "../../Contexts/PlacesProvider";
 import { useGeolocation } from "../../hooks/useGeolocation";
 import { useParamUrl } from "../../hooks/useParamUrl";
-import UserLogged from "../UserLogged";
+import UserLogged from "./UserLogged";
 
 function Map() {
-  const { data } = usePlaces();
-  const [mapPosition, setMapPosition] = useState([40, 0]);
+  const { data, mapPosition, setMapPosition } = usePlaces();
   const {
     isLoading: isLoadingPosition,
     position: geoLocationPosition,

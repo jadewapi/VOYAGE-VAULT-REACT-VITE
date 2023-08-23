@@ -1,12 +1,21 @@
 import styles from "./Cities.module.css";
 import Loading from "../../../Components/Loading/Loading";
 import { usePlaces } from "../../../Contexts/PlacesProvider";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Cities() {
-  const { isLoading, data, formatDate, currentCity, deleteCity } = usePlaces();
+  const {
+    isLoading,
+    data,
+    formatDate,
+    currentCity,
+    deleteCity,
+    setMapPosition,
+  } = usePlaces();
   function handleClick(e, id) {
     e.preventDefault();
+    const { lat, lng } = data.find((obj) => obj.id === id).position;
+    setMapPosition([lat, lng]);
     deleteCity(id);
   }
   return (
