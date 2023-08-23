@@ -12,6 +12,7 @@ import styles from "./Map.module.css";
 import { usePlaces } from "../../Contexts/PlacesProvider";
 import { useGeolocation } from "../../hooks/useGeolocation";
 import { useParamUrl } from "../../hooks/useParamUrl";
+import UserLogged from "../UserLogged";
 
 function Map() {
   const { data } = usePlaces();
@@ -53,6 +54,7 @@ function Map() {
             {isLoadingPosition ? "Loading..." : "Use your position"}
           </button>
         )}
+        <UserLogged />
         <TileLayer
           attribution='&copy; <a href="https://cartodb.com/attributions">CartoDB</a> contributors'
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"

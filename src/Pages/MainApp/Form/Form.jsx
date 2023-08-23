@@ -115,7 +115,7 @@ function Form() {
               id="date"
               onChange={(date) => setDate(date)}
               selected={date}
-              dateFormat="dd/MM/yyyy"
+              dateFormat="MM/dd/yyyy"
             />
             <label htmlFor="notes">Notes about {city}</label>
             <textarea
