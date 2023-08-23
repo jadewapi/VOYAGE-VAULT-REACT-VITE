@@ -80,3 +80,9 @@ svg:hover {
   fill: red;
   scale: 2;
 }
+
+@media (width < 979px) {
+  #map {
+    width: 100%;
+  }
+}

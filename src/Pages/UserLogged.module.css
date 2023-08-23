@@ -25,7 +25,8 @@
 
 .container > div > div {
   position: relative;
-  top: 10%;
+  top: 18%;
+  right: 14%;
 }
 
 .container > div > div > p:first-child {
@@ -41,9 +42,9 @@
   width: auto;
   border-radius: 50%;
   position: relative;
-  top: 60%;
-  right: 20%;
   height: 200%;
+  top: 15%;
+  right: 12%;
   border: 4px solid #ff6421;
 }
 
@@ -51,4 +52,10 @@
   width: 30%;
   padding: 0 2rem;
   font-size: 1.5rem;
+}
+
+@media (width < 607px) {
+  .container {
+    width: 40rem;
+  }
 }

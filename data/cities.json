@@ -1,16 +1,3 @@
 {
-  "cities": [
-    {
-      "cityName": "Iredell",
-      "country": "United States of America",
-      "emoji": "🇺🇸",
-      "date": "2023-08-23T00:33:32.446Z",
-      "notes": "",
-      "position": {
-        "lat": "32.045332838858506",
-        "lng": "-97.90521037612682"
-      },
-      "id": "3sEANn3o2SRBb2D9jop_O"
-    }
-  ]
+  "cities": []
 }

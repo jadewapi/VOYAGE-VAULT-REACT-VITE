@@ -27,8 +27,8 @@ function reducer(state, action) {
 }
 
 const USER = {
-  name: "jade",
-  email: "jadewapi@gmail.com",
+  name: "Jade Pineda",
+  userName: "jadewapi",
   password: "1111",
   avatar: "https://i.pravatar.cc/300",
 };
@@ -38,8 +38,9 @@ function AthenticationProvider({ children }) {
     reducer,
     initialState
   );
-  function login(email, password) {
-    if (email === USER.email && password === USER.password) {
+  function login(userName, password) {
+    if (userName === USER.userName && password === USER.password) {
+      console.log("login");
       dispatch({ type: "login", payload: USER });
     }
   }
@@ -49,7 +50,7 @@ function AthenticationProvider({ children }) {
 
   return (
     <AuthenticationContext.Provider
-      value={(user, isAuthenticated, login, logout)}
+      value={{ user, isAuthenticated, login, logout }}
     >
       {children}
     </AuthenticationContext.Provider>

@@ -64,3 +64,21 @@
     width: 60%;
   }
 }
+
+@media (width < 979px) {
+  .container {
+    flex-direction: column;
+    height: 170rem;
+  }
+  .container > * {
+    width: 100%;
+  }
+  .menu {
+    border: none;
+    padding-bottom: 5rem;
+    border-bottom: 10px solid #ff4d00;
+  }
+  .container > *:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
