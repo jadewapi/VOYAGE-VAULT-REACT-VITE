@@ -36,7 +36,12 @@ function City() {
           </div>
           <div>
             <p>learn more:</p>
-            <p>wikipedia link</p>
+            <a
+              href={`https://en.wikipedia.org/wiki/${currentCity.cityName}`}
+              target="blank"
+            >
+              wikipedia link
+            </a>
           </div>
           <BackButton />
         </>

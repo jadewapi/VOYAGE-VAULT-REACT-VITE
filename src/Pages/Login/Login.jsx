@@ -12,12 +12,10 @@ function Login() {
   function handleLogin(e) {
     e.preventDefault();
     login(userName, pass);
-    setEmail("");
-    setPass("");
   }
   useEffect(
     function () {
-      if (isAuthenticated) navigate("/mainApp");
+      if (isAuthenticated) navigate("/mainApp", { replace: true });
     },
     [isAuthenticated]
   );

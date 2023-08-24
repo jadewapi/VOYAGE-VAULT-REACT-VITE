@@ -1,6 +1,7 @@
 .countries {
   height: 100%;
   position: relative;
+  overflow: scroll;
 }
 
 .countries .specificCountry:not(:first-child) {

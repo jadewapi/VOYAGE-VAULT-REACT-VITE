@@ -15,6 +15,12 @@
   color: #1f1f1f;
 }
 
+#root {
+  max-width: 1860px;
+  max-height: 750px;
+  margin: 0 auto;
+}
+
 html {
   font-size: 62.5%;
   user-select: none;

@@ -61,7 +61,6 @@ function Form() {
           setCountry(removeParentheses(data.countryName));
           setCity(data.city);
           setFlag(getCountryFlagEmoji(data.countryCode));
-          console.log(data);
         } catch (err) {
           setError(err.message);
         } finally {
@@ -126,7 +125,9 @@ function Form() {
               placeholder={`Write your experience(s) in ${city}`}
             ></textarea>
             <label>Wikipedia Link:</label>
-            <a>Click link!</a>
+            <a href={`https://en.wikipedia.org/wiki/${city}`} target="blank">
+              Click link!
+            </a>
             <div className={styles.buttons}>
               <button type="button" onClick={(e) => handleSubmit(e)}>
                 Add

@@ -42,7 +42,7 @@ function AthenticationProvider({ children }) {
     if (userName === USER.userName && password === USER.password) {
       console.log("login");
       dispatch({ type: "login", payload: USER });
-    }
+    } else alert("Wrong credentials");
   }
   function logout() {
     dispatch({ type: "logout" });

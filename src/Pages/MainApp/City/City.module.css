@@ -42,6 +42,10 @@
   margin-top: 2rem;
 }
 
+.container > div > a {
+  font-size: 2rem;
+}
+
 @media (width < 864px) {
   .container > div:not(:first-child) > p:nth-child(2) {
     font-size: 1.5rem;
