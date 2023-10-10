@@ -12,6 +12,7 @@ function Cities() {
     deleteCity,
     setMapPosition,
   } = usePlaces();
+  console.log(data);
   function handleClick(e, id) {
     e.preventDefault();
     const { lat, lng } = data.find((obj) => obj.id === id).position;
