@@ -96,7 +96,7 @@ function PlacesProvider({ children }) {
   async function getCity(id) {
     try {
       dispatch({ type: "loading" });
-      const res = await fetch(`${LOCAL_API}/${id}`);
+      const res = await fetch(`${LOCAL_API}/cities/${id}`);
       const data = await res.json();
       dispatch({ type: "city/loaded", payload: data });
     } catch (err) {
