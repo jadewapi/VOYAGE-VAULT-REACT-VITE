@@ -17,7 +17,7 @@ function Login() {
     function () {
       if (isAuthenticated) navigate("/mainApp", { replace: true });
     },
-    [isAuthenticated]
+    [isAuthenticated, navigate]
   );
   return (
     <>

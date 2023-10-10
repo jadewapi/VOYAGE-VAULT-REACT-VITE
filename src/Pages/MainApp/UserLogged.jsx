@@ -12,7 +12,7 @@ function UserLogged() {
         navigate("/login");
       }
     },
-    [isAuthenticated]
+    [isAuthenticated, navigate]
   );
   const hour = new Date().getHours();
   function getTimeOfDay(hour) {
