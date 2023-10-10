@@ -1,42 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Miabi",
-      "country": "Congo",
-      "emoji": "🇨🇩",
-      "date": "2023-08-23T05:45:05.923Z",
-      "notes": "",
-      "position": {
-        "lat": "-6.489983332670651",
-        "lng": "23.269428177457655"
-      },
-      "id": "aBevKlpwMT6VMik9J1Qm5"
-    },
-    {
-      "cityName": "In Guezzam",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2023-08-23T05:45:10.673Z",
-      "notes": "",
-      "position": {
-        "lat": "20.46818922264095",
-        "lng": "4.304837933109439"
-      },
-      "id": "jd2Za7Ylmni7abek0Ak5Z"
-    },
-    {
-      "cityName": "Val Marie No. 17",
-      "country": "Canada",
-      "emoji": "🇨🇦",
-      "date": "2023-08-23T05:47:44.679Z",
-      "notes": "sdfsdfsdf",
-      "position": {
-        "lat": "49.03786794532644",
-        "lng": "-107.40234375000001"
-      },
-      "id": "1On7wIGKpkkDJ2lc_UfGA"
-    },
-    {
       "cityName": "Lohaghat",
       "country": "India",
       "emoji": "🇮🇳",
@@ -47,6 +11,42 @@
         "lng": "79.98776740939962"
       },
       "id": "4B7iDuqSjLoLkNj4uSoMI"
+    },
+    {
+      "cityName": "Nanyang",
+      "country": "China",
+      "emoji": "🇨🇳",
+      "date": "2023-10-10T20:04:47.405Z",
+      "notes": "sdfsdfsdf",
+      "position": {
+        "lat": "32.47269502206151",
+        "lng": "112.32421875000001"
+      },
+      "id": "LWJQ9PrQXTfGMvzv8n4yf"
+    },
+    {
+      "cityName": "Zhosaly",
+      "country": "Kazakhstan",
+      "emoji": "🇰🇿",
+      "date": "2023-10-10T20:09:29.364Z",
+      "notes": "wefsdf",
+      "position": {
+        "lat": "46.22545288226939",
+        "lng": "63.36914062500001"
+      },
+      "id": "oO4WzjJmamDASB34imkme"
+    },
+    {
+      "cityName": "Nilka",
+      "country": "China",
+      "emoji": "🇨🇳",
+      "date": "2023-10-10T20:09:38.447Z",
+      "notes": "esfdsdf",
+      "position": {
+        "lat": "43.61221676817573",
+        "lng": "82.17773437500001"
+      },
+      "id": "s1NPVkYNcXQmIzUU98Wg1"
     }
   ]
 }

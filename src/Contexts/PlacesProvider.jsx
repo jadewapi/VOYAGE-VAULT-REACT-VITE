@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 
-const LOCAL_API = "http://localhost:9000";
+const LOCAL_API = "https://voyage-api.onrender.com";
 
 const PlacesContext = createContext();
 
@@ -96,7 +96,7 @@ function PlacesProvider({ children }) {
   async function getCity(id) {
     try {
       dispatch({ type: "loading" });
-      const res = await fetch(`http://localhost:9000/cities/${id}`);
+      const res = await fetch(`${LOCAL_API}/cities/${id}`);
       const data = await res.json();
       dispatch({ type: "city/loaded", payload: data });
     } catch (err) {
@@ -107,7 +107,7 @@ function PlacesProvider({ children }) {
   async function createCity(newCity) {
     try {
       dispatch({ type: "loading" });
-      const res = await fetch(`http://localhost:9000/cities`, {
+      const res = await fetch(`${LOCAL_API}/cities`, {
         method: "POST",
         body: JSON.stringify(newCity),
         headers: {
@@ -127,7 +127,7 @@ function PlacesProvider({ children }) {
   async function deleteCity(id) {
     try {
       dispatch({ type: "loading" });
-      await fetch(`http://localhost:9000/cities/${id}`, {
+      await fetch(`${LOCAL_API}/cities/${id}`, {
         method: "DELETE",
       });
       dispatch({ type: "city/deleted", payload: id });
