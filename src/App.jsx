@@ -9,6 +9,7 @@ import Form from "./Pages/MainApp/Form/Form";
 import { PlacesProvider } from "./Contexts/PlacesProvider";
 import City from "./Pages/MainApp/City/City";
 import { AthenticationProvider } from "./Contexts/Authentication";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -30,6 +31,22 @@ function App() {
               </Route>
             </Routes>
           </BrowserRouter>
+          <Toaster
+            position="top-center"
+            gutter={12}
+            containerStyle={{ margin: "8px" }}
+            toastOptions={{
+              success: { duration: 10000 },
+              style: {
+                fontSize: "16px",
+                maxWidth: "500px",
+                padding: "16px 24px",
+                backgroundColor: "white",
+                color: "black",
+                fontFamily: "sans-serif",
+              },
+            }}
+          />
         </PlacesProvider>
       </AthenticationProvider>
     </>

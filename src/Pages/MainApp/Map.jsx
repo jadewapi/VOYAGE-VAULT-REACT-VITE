@@ -13,8 +13,12 @@ import { usePlaces } from "../../Contexts/PlacesProvider";
 import { useGeolocation } from "../../hooks/useGeolocation";
 import { useParamUrl } from "../../hooks/useParamUrl";
 import UserLogged from "./UserLogged";
+import toast from "react-hot-toast";
 
 function Map() {
+  useEffect(function () {
+    toast.success("It may take a while for the data from the hoster to fetch");
+  }, []);
   const { data, mapPosition, setMapPosition } = usePlaces();
   const {
     isLoading: isLoadingPosition,
