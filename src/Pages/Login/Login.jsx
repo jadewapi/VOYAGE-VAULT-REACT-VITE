@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 function Login() {
   useEffect(function () {
-    toast.success("jadewapi, 1111");
+    toast.success("username: jadewapi, password: 1111");
   }, []);
   const navigate = useNavigate();
   const { login, isAuthenticated } = useAuthentication();
