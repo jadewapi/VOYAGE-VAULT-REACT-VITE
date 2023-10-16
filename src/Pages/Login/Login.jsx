@@ -3,16 +3,12 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { useAuthentication } from "../../Contexts/Authentication";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 
 function Login() {
-  useEffect(function () {
-    toast.success("username: jadewapi, password: 1111");
-  }, []);
   const navigate = useNavigate();
   const { login, isAuthenticated } = useAuthentication();
-  const [userName, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const userName = "jadewapi";
+  const pass = "1111";
   function handleLogin(e) {
     e.preventDefault();
     login(userName, pass);
@@ -28,18 +24,8 @@ function Login() {
       <Navbar />
       <section className={styles.container}>
         <form onSubmit={(e) => handleLogin(e)}>
-          <input
-            type="text"
-            placeholder=">>>username"
-            value={userName}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder=">>>password"
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
-          />
+          <input type="text" placeholder=">>>username" value={userName} />
+          <input type="text" placeholder=">>>password" value={pass} />
           <button>Login</button>
         </form>
       </section>
