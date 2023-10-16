@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 function Login() {
+  useEffect(function () {
+    toast.success("jadewapi, 1111");
+  }, []);
   const navigate = useNavigate();
   const { login, isAuthenticated } = useAuthentication();
   const [userName, setEmail] = useState("");
@@ -20,9 +23,6 @@ function Login() {
     },
     [isAuthenticated, navigate]
   );
-  useEffect(function () {
-    toast.success("username: jadewapi, password: 1111");
-  }, []);
   return (
     <>
       <Navbar />

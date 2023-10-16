@@ -9,7 +9,7 @@ import Form from "./Pages/MainApp/Form/Form";
 import { PlacesProvider } from "./Contexts/PlacesProvider";
 import City from "./Pages/MainApp/City/City";
 import { AthenticationProvider } from "./Contexts/Authentication";
-import { Toaster } from "react-hot-toast";
+import toast, { ToastBar, Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
             gutter={12}
             containerStyle={{ margin: "8px" }}
             toastOptions={{
-              success: { duration: 10000 },
+              success: { duration: 5000 },
               style: {
                 fontSize: "16px",
                 maxWidth: "500px",
@@ -46,7 +46,27 @@ function App() {
                 fontFamily: "sans-serif",
               },
             }}
-          />
+          >
+            {(t) => (
+              <ToastBar toast={t}>
+                {({ icon, message }) => (
+                  <>
+                    {icon}
+                    {message}
+                    {t.type !== "loading" && (
+                      <button
+                        className="toastDismiss"
+                        onClick={() => toast.dismiss(t.id)}
+                      >
+                        X
+                      </button>
+                    )}
+                  </>
+                )}
+              </ToastBar>
+            )}
+          </Toaster>
+          ;
         </PlacesProvider>
       </AthenticationProvider>
     </>
