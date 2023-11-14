@@ -53,3 +53,9 @@
     font-size: 1rem;
   }
 }
+
+@media (height > 846px) {
+  .container {
+    height: 80vh;
+  }
+}

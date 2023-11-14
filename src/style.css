@@ -26,7 +26,7 @@
 
 #root {
   max-width: 1860px;
-  max-height: 750px;
+  /* max-height: 750px; */
   margin: 0 auto;
 }
 
@@ -99,5 +99,14 @@ svg:hover {
 @media (width < 979px) {
   #map {
     width: 100%;
+  }
+}
+
+@media (height > 846px) {
+  body {
+    height: 100vh;
+  }
+  body > #root {
+    height: 100%;
   }
 }

@@ -116,3 +116,13 @@
     font-size: 3rem;
   }
 }
+
+@media (height > 846px) {
+  .container--homepage {
+    height: 80vh;
+  }
+  .image--homepage > img {
+    top: 15%;
+    height: 60%;
+  }
+}
